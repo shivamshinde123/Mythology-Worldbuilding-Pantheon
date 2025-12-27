@@ -1,7 +1,7 @@
 
 import asyncio
 from typing import Dict, Any, Optional
-from langchain_anthropic import ChatAnthropic
+from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 
 
@@ -11,8 +11,8 @@ class BaseDeityAgent:
         self.name = name
         self.domain = domain
         self.system_prompt = system_prompt
-        self.llm = ChatAnthropic(
-            model = "claude-3-5-sonnet-20241022",
+        self.llm = ChatOpenAI(
+            model = "gpt-4o",
             temperature = temperature
         )
 
@@ -22,7 +22,7 @@ class BaseDeityAgent:
 
         messages = [
             SystemMessage(content=self.system_prompt),
-            HumanMessage(content=self._format_input(task, context))
+            HumanMessage(content=self.format_input(task, context))
         ]
 
         response = self.llm.invoke(messages)
@@ -34,14 +34,14 @@ class BaseDeityAgent:
 
         messages = [
             SystemMessage(content=self.system_prompt),
-            HumanMessage(content=self._format_input(task, context))
+            HumanMessage(content=self.format_input(task, context))
         ]
 
         response = await self.llm.ainvoke(messages)
         return response.content
 
 
-    def _format_input(self, task: str, context: dict[str, Any] = None) -> str:
+    def format_input(self, task: str, context: dict[str, Any] = None) -> str:
 
         "format inputs with context"
 
