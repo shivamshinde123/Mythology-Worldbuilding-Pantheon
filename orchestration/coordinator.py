@@ -9,6 +9,19 @@ from orchestration.collaboration_patterns import CollaborativeSynthesis
 
 class MythologyCoordinator:
 
+    """
+    Mythology Coordinator class.
+
+    This class manages the overall mythology creation process.
+    It initializes agents, coordinates collaboration, and saves lore.
+
+    Attributes:
+        agents (dict): Dictionary of agent instances
+        weaver (WeaverAgent): The weaver agent
+        lore_db (LoreDatabase): The lore database
+        collaboration (CollaborativeSynthesis): The collaboration handler
+    """
+
     def __init__(self):
         # Initialize all agents
         self.agents = {
