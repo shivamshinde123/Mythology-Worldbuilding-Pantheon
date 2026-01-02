@@ -112,17 +112,29 @@ mythology-pantheon/
 ├── orchestration/            # Collaboration management
 │   ├── coordinator.py        # Main user interface
 │   └── collaboration_patterns.py  # Multi-agent workflow
-├── memory/                   # Persistence system
+├── agent_memory/             # Story persistence system
 │   └── lore_database.py      # Story storage and retrieval
+├── auth_db/                  # Database models and connection
+│   ├── base.py              # SQLAlchemy base
+│   ├── connection.py        # Database connection
+│   └── models.py            # User and API models
+├── auth/                     # Authentication services
+│   └── auth_service.py      # JWT and password handling
+├── api/                      # API endpoints
+│   └── routes.py            # FastAPI routes
 ├── prompts/                  # Agent personalities
 │   └── agent_prompts.py      # Detailed character prompts
-└── main.py                   # Example usage
+└── main.py                   # Server entry point
 ```
 
 ### Key Technologies
+- **FastAPI**: REST API framework
 - **LangChain**: Agent framework and LLM integration
 - **OpenAI GPT-4**: Language model powering the agents
+- **SQLAlchemy**: Database ORM for user authentication
+- **SQLite**: Database for user data
 - **Python AsyncIO**: Concurrent agent execution
+- **JWT**: Authentication tokens
 - **JSON**: Story persistence and export
 
 ## 🚀 Getting Started
@@ -141,14 +153,26 @@ cd mythology-pantheon
 
 2. **Install dependencies**
 ```bash
-pip install -r requirements.txt
+# Install uv if you don't have it
+pip install uv
+
+# Install dependencies with uv
+cd backend
+uv sync
 ```
 
 3. **Set up environment**
 ```bash
-# Create .env file
-echo "OPENAI_API_KEY=your_api_key_here" > .env
+# Create .env file in backend folder
+echo "OPENAI_API_KEY=your_api_key_here" > backend/.env
+echo "SECRET_KEY=your_secret_key_here" >> backend/.env
+echo "DATABASE_URL=sqlite+aiosqlite:///./mythology.db" >> backend/.env
 ```
+
+**Required Environment Variables:**
+- `OPENAI_API_KEY`: Your OpenAI API key for GPT-4 access
+- `SECRET_KEY`: Secret key for JWT token encryption (generate a secure random string)
+- `DATABASE_URL`: Database connection string (SQLite by default)
 
 ## 🎨 What Makes This Special
 
