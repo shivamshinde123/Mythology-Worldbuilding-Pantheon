@@ -162,7 +162,7 @@ mythology-pantheon/
 
 1. **Clone the repository**
 ```bash
-git clone <repository-url>
+git clone https://github.com/shivamshinde123/Mythology-Worldbuilding-Pantheon.git
 cd mythology-pantheon
 ```
 
