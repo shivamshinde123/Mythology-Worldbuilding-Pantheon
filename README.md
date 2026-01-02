@@ -101,38 +101,52 @@ Session 3: "Create a story about sea monsters"
 
 ```
 mythology-pantheon/
-├── agents/                    # AI deity agents
-│   ├── base_agent.py         # Base class with LangChain integration
-│   ├── trickster_agent.py    # Kethix implementation
-│   ├── warrior_agent.py      # Valdris implementation
-│   ├── wisdom_agent.py       # Aetherion implementation
-│   ├── nature_agent.py       # Sylvara implementation
-│   ├── death_agent.py        # Mortanis implementation
-│   └── weaver_agent.py       # Nyssara implementation
-├── orchestration/            # Collaboration management
-│   ├── coordinator.py        # Main user interface
-│   └── collaboration_patterns.py  # Multi-agent workflow
-├── agent_memory/             # Story persistence system
-│   └── lore_database.py      # Story storage and retrieval
-├── auth_db/                  # Database models and connection
-│   ├── base.py              # SQLAlchemy base
-│   ├── connection.py        # Database connection
-│   └── models.py            # User and API models
-├── auth/                     # Authentication services
-│   └── auth_service.py      # JWT and password handling
-├── api/                      # API endpoints
-│   └── routes.py            # FastAPI routes
-├── prompts/                  # Agent personalities
-│   └── agent_prompts.py      # Detailed character prompts
-└── main.py                   # Server entry point
+├── backend/                  # FastAPI backend server
+│   ├── agents/              # AI deity agents
+│   │   ├── base_agent.py    # Base class with LangChain integration
+│   │   ├── trickster_agent.py # Kethix implementation
+│   │   ├── warrior_agent.py # Valdris implementation
+│   │   ├── wisdom_agent.py  # Aetherion implementation
+│   │   ├── nature_agent.py  # Sylvara implementation
+│   │   ├── death_agent.py   # Mortanis implementation
+│   │   └── weaver_agent.py  # Nyssara implementation
+│   ├── orchestration/       # Collaboration management
+│   │   ├── coordinator.py   # Main user interface
+│   │   └── collaboration_patterns.py # Multi-agent workflow
+│   ├── agent_memory/        # Story persistence system
+│   │   └── lore_database.py # Story storage and retrieval
+│   ├── auth_db/             # Database models and connection
+│   │   ├── base.py         # SQLAlchemy base
+│   │   ├── connection.py   # Database connection
+│   │   └── models.py       # User and API models
+│   ├── auth/                # Authentication services
+│   │   └── auth_service.py # JWT and password handling
+│   ├── api/                 # API endpoints
+│   │   └── routes.py       # FastAPI routes
+│   ├── prompts/             # Agent personalities
+│   │   └── agent_prompts.py # Detailed character prompts
+│   └── main.py              # Server entry point
+├── frontend/                 # React web application
+│   ├── src/                 # React source code
+│   │   ├── pages/          # Application pages
+│   │   ├── App.jsx         # Main app component
+│   │   └── main.jsx        # React entry point
+│   ├── index.html          # HTML template
+│   ├── package.json        # Node.js dependencies
+│   ├── tailwind.config.js  # Tailwind CSS configuration
+│   └── vite.config.js      # Vite build configuration
+├── .gitignore               # Git ignore patterns
+└── README.md                # Project documentation
 ```
 
 ### Key Technologies
 - **FastAPI**: REST API framework
+- **React**: Frontend user interface with Vite
 - **LangChain**: Agent framework and LLM integration
 - **OpenAI GPT-4**: Language model powering the agents
 - **SQLAlchemy**: Database ORM for user authentication
 - **SQLite**: Database for user data
+- **Tailwind CSS**: Utility-first CSS framework
 - **Python AsyncIO**: Concurrent agent execution
 - **JWT**: Authentication tokens
 - **JSON**: Story persistence and export
@@ -141,6 +155,7 @@ mythology-pantheon/
 
 ### Prerequisites
 - Python 3.8+
+- Node.js 16+
 - OpenAI API key
 
 ### Installation
@@ -151,7 +166,7 @@ git clone <repository-url>
 cd mythology-pantheon
 ```
 
-2. **Install dependencies**
+2. **Install backend dependencies**
 ```bash
 # Install uv if you don't have it
 pip install uv
@@ -161,7 +176,14 @@ cd backend
 uv sync
 ```
 
-3. **Set up environment**
+3. **Install frontend dependencies**
+```bash
+# Navigate to frontend directory
+cd ../frontend
+npm install
+```
+
+4. **Set up environment**
 ```bash
 # Create .env file in backend folder
 echo "OPENAI_API_KEY=your_api_key_here" > backend/.env
@@ -173,6 +195,25 @@ echo "DATABASE_URL=sqlite+aiosqlite:///./mythology.db" >> backend/.env
 - `OPENAI_API_KEY`: Your OpenAI API key for GPT-4 access
 - `SECRET_KEY`: Secret key for JWT token encryption (generate a secure random string)
 - `DATABASE_URL`: Database connection string (SQLite by default)
+
+### Running the Application
+
+1. **Start the backend server**
+```bash
+cd backend
+uv run python main.py
+```
+
+2. **Start the frontend development server**
+```bash
+# In a new terminal
+cd frontend
+npm run dev
+```
+
+3. **Access the application**
+- Register a new account or login in broswer
+- Start creating mythological stories!
 
 ## 🎨 What Makes This Special
 
@@ -208,8 +249,6 @@ Each agent's contribution feels authentic to their character while serving the l
 ## 🛠️ Future Enhancements
 
 ### Planned Features
-- **Web Interface**: React frontend for easier interaction
-- **REST API**: FastAPI backend for integration
 - **Advanced Collaboration Patterns**: Debate modes, sequential chains
 - **Export Formats**: PDF, ePub, formatted documents
 - **Visual Elements**: AI-generated artwork for stories
