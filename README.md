@@ -163,7 +163,7 @@ mythology-pantheon/
 1. **Clone the repository**
 ```bash
 git clone https://github.com/shivamshinde123/Mythology-Worldbuilding-Pantheon.git
-cd mythology-pantheon
+cd Mythology-Worldbuilding-Pantheon
 ```
 
 2. **Install backend dependencies**
@@ -227,7 +227,7 @@ Simple agent interactions create unexpectedly rich narratives. The tension betwe
 The memory system prevents contradictions across sessions. Your mythology world grows coherently over time, with each story adding to a larger tapestry.
 
 ### 4. **Collaborative Synthesis**
-The Creation Weaver doesn't just combine ideas—it finds elegant ways to resolve contradictions and create unified narratives that honor all perspectives.
+The Creation Weaver doesn't just combine ideas, it finds elegant ways to resolve contradictions and create unified narratives that honor all perspectives.
 
 ### 5. **Scalable Architecture**
 Easy to add new agents, modify collaboration patterns, or extend functionality. The system is designed for growth and experimentation.
