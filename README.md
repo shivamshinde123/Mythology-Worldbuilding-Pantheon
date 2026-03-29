@@ -2,6 +2,10 @@
 
 A multi-agent AI system where different deity archetypes collaborate to create rich, coherent mythologies through structured interaction patterns.
 
+## Detailed Documentation
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/shivamshinde123/Mythology-Worldbuilding-Pantheon)
+
 ## 🌟 Core Concept
 
 Imagine a pantheon of AI gods, each with distinct personalities and domains, working together to weave mythologies. Five deity agents embody different archetypes (Trickster, Warrior, Wisdom, Nature, Death) while a sixth agent (Creation Weaver) synthesizes their perspectives into coherent narratives.
